@@ -7,7 +7,7 @@
   <body>
     <h1>First to three wins the game! </h1>
     <br>
-    <h2>Type game() in console to start</h2>
+    <h2>Type game() in console to start, and restart() to... restart</h2>
     <script>
           let compScore = 0;
           let playerScore = 0;
@@ -64,6 +64,12 @@
             else if (compScore === 3)
               alert("Noob, computer owned you!");
             else game();
+          }
+
+          function restart(){
+            playerScore = 0;
+            compScore = 0;
+            game();
           }
     </script>
   </body>
