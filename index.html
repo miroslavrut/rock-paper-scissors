@@ -9,7 +9,6 @@
           let compScore = 0;
           let playerScore = 0;
 
-
           function playerInput(){
           let playerSelection = prompt("Pick your weapon","").toUpperCase();
           if(!(playerSelection == "ROCK" || playerSelection =="PAPER"
@@ -43,8 +42,8 @@
           }
 
           function score(){
-            if(playRound() == "player") playerScore++;
-            else if(playRound()== "computer") compScore++;
+            if(playRound() == "player") ++playerScore;
+            else if(playRound() == "computer") ++compScore;
           }
 
           function game() {
@@ -54,16 +53,7 @@
             else if (compScore === 3)
               alert("Noob, computer owned you!");
             else game();
-
-
-
           }
-
-
-
-
-
-
     </script>
   </body>
 </html>
