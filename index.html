@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Rock|Paper|Scissors</title>
+  </head>
+  <body>
+    <script>
+          let compScore = 0;
+          let playerScore = 0;
+
+
+          function playerInput(){
+          let playerSelection = prompt("Pick your weapon","").toUpperCase();
+          if(!(playerSelection == "ROCK" || playerSelection =="PAPER"
+           || playerSelection =="SCISSORS")){
+             alert("Invalid choice!");
+             playerSelection= playerInput();
+           }
+          return playerSelection;
+        }
+
+        function computerPlay() {
+            return randNum()==1 ? "ROCK" : randNum()==2 ? "PAPER" : "SCISSORS";
+          }
+
+          function randNum() {
+            return (Math.floor(Math.random() * 3) +1);
+          }
+
+          function playRound() {
+            let roundWinner;
+            let playerChoice= playerInput();
+            let computerChoice= computerPlay();
+            if (playerChoice === computerChoice) roundWinner = "draw";
+            else if(playerChoice == "ROCK" && computerChoice=="SCISSORS"
+               || playerChoice == "PAPER" && computerChoice=="ROCK"
+               || playerChoice =="SCISSORS" && computerChoice=="PAPER"){
+                 roundWinner ="player";
+               }
+            else roundWinner = "computer";
+            return roundWinner;
+          }
+
+          function score(){
+            if(playRound() == "player") playerScore++;
+            else if(playRound()== "computer") compScore++;
+          }
+
+          function game() {
+            score();
+            if(playerScore === 3)
+              alert("Yeeey, you win!");
+            else if (compScore === 3)
+              alert("Noob, computer owned you!");
+            else game();
+
+
+
+          }
+
+
+
+
+
+
+    </script>
+  </body>
+</html>
