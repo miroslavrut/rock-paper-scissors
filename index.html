@@ -5,6 +5,9 @@
     <title>Rock|Paper|Scissors</title>
   </head>
   <body>
+    <h1>First to three wins the game! </h1>
+    <br>
+    <h2>Type game() in console to start</h2>
     <script>
           let compScore = 0;
           let playerScore = 0;
@@ -31,19 +34,27 @@
             let roundWinner;
             let playerChoice= playerInput();
             let computerChoice= computerPlay();
-            if (playerChoice === computerChoice) roundWinner = "draw";
+            if (playerChoice === computerChoice){
+               roundWinner = "draw";
+               console.log("DRAW");
+             }
             else if(playerChoice == "ROCK" && computerChoice=="SCISSORS"
                || playerChoice == "PAPER" && computerChoice=="ROCK"
                || playerChoice =="SCISSORS" && computerChoice=="PAPER"){
                  roundWinner ="player";
+                 console.log("You won this round!");
                }
-            else roundWinner = "computer";
+            else {
+            roundWinner = "computer";
+            console.log("Computer won this round!");
+            }
             return roundWinner;
           }
 
           function score(){
-            if(playRound() == "player") ++playerScore;
-            else if(playRound() == "computer") ++compScore;
+            let winner=playRound();
+            if(winner === "player") ++playerScore;
+            else if(winner === "computer") ++compScore;
           }
 
           function game() {
