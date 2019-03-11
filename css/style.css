@@ -56,8 +56,8 @@ img{
 .display {
     display: flex;
     justify-content: space-around;
-    margin-left: 40rem;
-    margin-right: 35rem;
+    margin-left: 10%;
+    margin-right: 10%;
     padding-top: 6rem;
     font-size: 45px;
 }
