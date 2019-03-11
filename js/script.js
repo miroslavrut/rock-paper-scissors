@@ -14,7 +14,7 @@ rock.addEventListener('click', ()=>{playRound('rock',computerPlay())});
 paper.addEventListener('click', ()=>{playRound('paper',computerPlay())});
 scissors.addEventListener('click', ()=>{playRound('scissors',computerPlay())});
 newGameBtn.addEventListener('click',restart);
-
+newGameBtn.style.display = 'none';
 
 function computerPlay() {
 	return randNum()==1 ? "rock" : randNum()==2 ? "paper" : "scissors";
@@ -43,13 +43,33 @@ function playRound(playerChoice,computerChoice) {
 		++score[1];
 		playerScore.textContent = `${score[0]}`;
 		computerScore.textContent = `${score[1]}`
-    }  	
+	}  	
+	++round;
+	roundCount.textContent = `${round}`;
+	if(round===5) newGame();
+}
+
+function newGame(){
+	if(score[0]>score[1]) message.textContent = "YOU WIN THE GAME!";
+	else if (score[0]<score[1]) message.textContent = "Game Over, NOOB!";
+	else message.textContent = "It's a tie game!";
+	newGameBtn.style.display = 'block';
+	rock.disabled = true;
+    paper.disabled = true;
+    scissors.disabled = true;
 }
 
 
 
 function restart(){
-	playerScore = 0;
-	compScore = 0;
-	game();
+	score = [0,0];
+	round = 1;
+	playerScore.textContent = `${score[0]}`;
+	computerScore.textContent = `${score[1]}`;
+	roundCount.textContent = `${round}`;
+	rock.disabled = false;
+    paper.disabled = false;
+    scissors.disabled = false;
+	newGameBtn.style.display = 'none';
+	message.textContent = "5 ROUNDS!";
 }
