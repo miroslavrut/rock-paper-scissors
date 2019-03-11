@@ -67,5 +67,44 @@ img{
     font-size: 100%;
     display: flex;
     justify-content: center;
+    
 }
 
+#ng {
+    border-radius: 4px;
+    background-color: #9e9693;
+    border: none;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 28px;
+    padding: 20px;
+    width: 220px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 5px;
+}
+
+#ng span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+  }
+
+#ng span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+  }
+  
+  #ng:hover span {
+    padding-right: 25px;
+  }
+  
+  #ng:hover span:after {
+    opacity: 1;
+    right: 0;
+  }

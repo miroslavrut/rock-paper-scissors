@@ -6,7 +6,7 @@ const computerScore = document.querySelector('#computer-score');
 const roundCount = document.querySelector('#round-count');
 const message = document.querySelector('.message');
 const newGameBtn = document.querySelector('#ng');
-let round = 1;
+let round = 0;
 let score = [0,0];
 
 
@@ -63,7 +63,7 @@ function newGame(){
 
 function restart(){
 	score = [0,0];
-	round = 1;
+	round = 0;
 	playerScore.textContent = `${score[0]}`;
 	computerScore.textContent = `${score[1]}`;
 	roundCount.textContent = `${round}`;
