@@ -3,26 +3,32 @@
     padding: 0;    
     
 }
-html{
+html {
     height: 100%;
 }
 
-header{
+body {
+    background-color: aliceblue;
+}
+
+header {
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 50px;
     padding-top: 1.7rem;
     padding-left: 3rem;
+    font-family: Garamond;
+    color: rgb(2, 26, 26);
 }
 
-.weapon{
+.weapon {
     width: 13rem;
     height: 13rem;
     border-radius: 5%;
 }
 
-img{
+img {
     width: 10rem;
     height: 10rem; 
 }
@@ -35,16 +41,19 @@ img{
 }
 
 #weapon-container > button {
-    background: rgb(255, 255, 255);
+    background: aliceblue;
     /* border: 0.09rem solid rgb(10, 110, 156); */
     outline: none;
     transition: all 0.9s ease-in-out;
     margin: 0 20px;
+    cursor: pointer;
 }
 
 #weapon-container > button:hover {
     transform: scale(1.2);
-    border-color: blueviolet;
+    border-color: rgb(80, 91, 236);
+    background-color: rgb(215, 226, 235);
+    border-radius: 20%;
 }
 
 .message{
