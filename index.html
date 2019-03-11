@@ -1,76 +1,28 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>Rock|Paper|Scissors</title>
-  </head>
-  <body>
-    <h1>First to three wins the game! </h1>
-    <br>
-    <h2>Type game() in console to start, and restart() to... restart</h2>
-    <script>
-          let compScore = 0;
-          let playerScore = 0;
-
-          function playerInput(){
-          let playerSelection = prompt("Pick your weapon","").toUpperCase();
-          if(!(playerSelection == "ROCK" || playerSelection =="PAPER"
-           || playerSelection =="SCISSORS")){
-             alert("Invalid choice!");
-             playerSelection= playerInput();
-           }
-          return playerSelection;
-        }
-
-        function computerPlay() {
-            return randNum()==1 ? "ROCK" : randNum()==2 ? "PAPER" : "SCISSORS";
-          }
-
-          function randNum() {
-            return (Math.floor(Math.random() * 3) +1);
-          }
-
-          function playRound() {
-            let roundWinner;
-            let playerChoice= playerInput();
-            let computerChoice= computerPlay();
-            if (playerChoice === computerChoice){
-               roundWinner = "draw";
-               console.log("DRAW");
-             }
-            else if(playerChoice == "ROCK" && computerChoice=="SCISSORS"
-               || playerChoice == "PAPER" && computerChoice=="ROCK"
-               || playerChoice =="SCISSORS" && computerChoice=="PAPER"){
-                 roundWinner ="player";
-                 console.log("You won this round!");
-               }
-            else {
-            roundWinner = "computer";
-            console.log("Computer won this round!");
-            }
-            return roundWinner;
-          }
-
-          function score(){
-            let winner=playRound();
-            if(winner === "player") ++playerScore;
-            else if(winner === "computer") ++compScore;
-          }
-
-          function game() {
-            score();
-            if(playerScore === 3)
-              alert("Yeeey, you win!");
-            else if (compScore === 3)
-              alert("Noob, computer owned you!");
-            else game();
-          }
-
-          function restart(){
-            playerScore = 0;
-            compScore = 0;
-            game();
-          }
-    </script>
-  </body>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+    <header><span>ROCK PAPER SCISSORS</span></header>
+    <div class="message">5 ROUNDS!</div>
+    <div id="weapon-container">
+        <button class="weapon" id="rock"><img src="./img/rock.png" alt=""></button>
+        <button class="weapon" id="paper"><img src="./img/paper.png" alt=""></button>
+        <button class="weapon" id="scissors"><img src="./imgscissors.png" alt=""></button>
+    </div>
+    <div class="display">
+        <div><span>Player: </span> <span id="player-score">0</span></div>
+        <div><span>Round: </span> <span id="round-count">0</span></div>
+        <div><span>Computer: </span> <span id="computer-score">0</span></div>
+    </div>
+    <div class="new-game">
+        <button id="ng">New Game</button>
+    </div>
+    <script src="./js/script.js"></script>
+</body>
 </html>
