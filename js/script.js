@@ -4,46 +4,38 @@ const scissors = document.querySelector('#scissors');
 const playerScore = document.querySelector('player-score');
 const computerScore = document.querySelector('computer-score');
 const roundCount = document.querySelector('round-count');
-
+const message = document.querySelector('.message');
 const newGameBtn = document.querySelector('#ng');
 
-function playerInput(){
-let playerSelection = prompt("Pick your weapon","").toUpperCase();
-if(!(playerSelection == "ROCK" || playerSelection =="PAPER"
- || playerSelection =="SCISSORS")){
-	alert("Invalid choice!");
-	playerSelection= playerInput();
- }
-	return playerSelection;
-}
+
+rock.addEventListener('click', ()=>{playRound('rock',computerPlay())});
+paper.addEventListener('click', ()=>{playRound('paper',computerPlay())});
+scissors.addEventListener('click', ()=>{playRound('scissors',computerPlay())});
+newGameBtn.addEventListener('click',restart);
+
 
 function computerPlay() {
-	return randNum()==1 ? "ROCK" : randNum()==2 ? "PAPER" : "SCISSORS";
+	return randNum()==1 ? "rock" : randNum()==2 ? "paper" : "scissors";
 }
 
 function randNum() {
 	return (Math.floor(Math.random() * 3) +1);
 }
 
-function playRound() {
-  let roundWinner;
-  let playerChoice= playerInput();
-  let computerChoice= computerPlay();
-  if (playerChoice === computerChoice){
-	  roundWinner = "draw";
-      console.log("DRAW");
-   }
-  else if(playerChoice == "ROCK" && computerChoice=="SCISSORS"
-     || playerChoice == "PAPER" && computerChoice=="ROCK"
-     || playerChoice =="SCISSORS" && computerChoice=="PAPER"){
-        roundWinner ="player";
-        console.log("You won this round!");
-     }
-  else {
-		roundWinner = "computer";
-  		console.log("Computer won this round!");
-  }
-  		return roundWinner;
+function playRound(playerChoice,computerChoice) {
+
+	if (playerChoice === computerChoice){
+	message.textContent = `Computer also played ${playerChoice}, TIE! `;		
+}
+	else if(playerChoice == "rock" && computerChoice=="scissors"
+     || playerChoice == "paper" && computerChoice=="rock"
+     || playerChoice =="scissors" && computerChoice=="paper"){
+		message.textContent = `${playerChoice} beats ${computerChoice} You Win!`;
+    }
+	else {
+		message.textContent = `${computerChoice} beats ${playerChoice} You Loose!`;
+    }
+  	
 }
 
 function score(){

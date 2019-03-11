@@ -39,7 +39,7 @@ img{
     /* border: 0.09rem solid rgb(10, 110, 156); */
     outline: none;
     transition: all 0.9s ease-in-out;
-  
+    margin: 0 20px;
 }
 
 #weapon-container > button:hover {
@@ -68,3 +68,4 @@ img{
     display: flex;
     justify-content: center;
 }
+
